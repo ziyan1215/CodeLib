@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>loadDemo</title>
+	<style type="text/css">
+	#loading:after{
+		content: "load";
+		animation:load 3s infinite;
+	}
+	@keyframes load{
+		0%{content: "load";}
+		25%{content: "load.";}
+		50%{content: "load..";}
+		75%{content: "load...";}
+	}
+	</style>
+</head>
+<body>
+	<div id="loading"></div>
+</body>
+</html>

@@ -49,7 +49,7 @@
 		timer =  setInterval(function(){
 			var speed=(iTarget-oDiv.offsetLeft)/10;
 
-			speed=speed<0?Math.floor(speed):Math.ceil(speed);
+			speed=speed<0?Math.floor(speed):Math.ceil(speed); //因为speed为小数  所以要做取整运算。
 			
 			if(oDiv.offsetLeft==iTarget){
 				clearInterval(timer);

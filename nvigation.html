@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东分类导航</title>
+	<style>
+		body{
+			padding: 0;
+            font-size: 10pt;
+		}
+		ul{
+			margin: 0;
+			padding: 0;
+			display: block;
+			/* 高度不设置，让它自适应height: 514px; */
+			width: 210px;
+			border: 2px solid #B1191A;
+		}
+		ul .toptitle{
+			height: 48px;	
+			background-color:#B1191A; 
+			font-size: 16px;
+			color: white;
+			line-height: 48px;
+			text-align: left;
+			padding-left: 10px;
+		}
+
+		.navgator li{
+			position: relative;
+			height: 30px;
+			background-color: #C81623;
+			line-height: 30px;
+			font-size: 11pt;
+			list-style-type: none;
+			text-align:left;
+			padding-left: 10px;
+			z-index: 3;
+	/* 		background-image: url(1.png);
+			background-repeat: no-repeat;
+			background-position:right; */
+		}
+		.navgator li:hover{
+			background-color: white;
+			color: #C81623;
+		}
+		.navgator li a{
+			display: block;
+			text-decoration: none;
+			color: white;
+		}
+		
+		.navgator li a:hover{
+			/* background-color: white; */
+			color: #C81623;
+		}
+
+		.navgator li b{
+			color: white;
+			
+			position: absolute;
+			
+			font-size: 10pt;
+			padding-right: 10px;
+			z-index: 3;
+		}
+	</style>
+</head>
+<body>
+	
+	
+		<ul class="navgator">
+			<div class="toptitle">
+				全部商品分类
+			</div>
+
+			<li><a href="#">家用电器</a><b>></b></li>
+			<li><a href="#">手机、数码、京东通信</a><b>></b></li>
+			<li><a href="#">电脑、办公</a><b>></b></li>
+			<li><a href="#">家居、家具、家装、厨具</a><b>></b></li>
+			<li><a href="#">男装、女装、童装、内衣</a><b>></b></li>
+			<li><a href="#">个性化妆、清洁用品、宠物</a><b>></b></li>
+			<li><a href="#">鞋靴、箱包、珠宝、奢侈品</a><b>></b></li>
+			<li><a href="#">运动户外、钟表</a><b>></b></li>
+			<li><a href="#">汽车、汽车用品</a><b>></b></li>
+			<li><a href="#">母婴、玩具乐器</a><b>></b></li>
+			<li><a href="#">食品、酒类、生鲜、特产</a><b>></b></li>
+			<li><a href="#">医药保健</a><b>></b></li>
+			<li><a href="#">图书、音像、电子书</a><b>></b></li>
+			<li><a href="#">彩票、旅行、充值、票务</a><b>></b></li>
+			<li><a href="#">理财、众筹、白条、保险</a><b>></b></li>	
+			<div class="submenu">
+			<div class="leftdiv">
+				<dl>
+					<dt><a href="#">大家电</a></dt>
+					<dd>
+						<a href="#">平板电视</a>
+						<a href="#">空调</a>
+						<a href="#">冰箱</a>
+						<a href="#">洗衣机</a>
+						<a href="#">家庭影院</a>
+						<a href="#">DVD</a>
+						<a href="#">迷你音响</a>
+						<a href="#">冰柜、冰吧</a>
+						<a href="#">酒柜</a>
+						<a href="#">家电配件</a>
+					</dd>
+					<dt><a href="#">厨卫大电</a></dt>
+					<dd>
+						<a href="#">油烟机</a>
+						<a href="#">燃气炉</a>
+						<a href="#">烟灶套装</a>
+						<a href="#">消毒柜</a>
+						<a href="#">洗碗机</a>
+						<a href="#">电热水器</a>
+						<a href="#">燃气热水器</a>
+						<a href="#">嵌入式厨电</a>
+					</dd>
+					<dt><a href="#">厨房小电</a></dt>
+					<dd>
+						<a href="#">电饭煲</a>
+						<a href="#">微波炉</a>
+						<a href="#">电烤箱</a>
+						<a href="#">电磁炉</a>
+						<a href="#">电压力煲</a>
+						<a href="#">豆浆机</a>
+						<a href="#">咖啡机</a>
+						<a href="#">面包机</a>
+						<a href="#">榨果汁机</a>
+						<a href="#">料理机</a>
+						<a href="#">电饼铛</a>
+						<a href="#">养生壶/煎药壶</a>
+						<a href="#">酸奶机</a>
+						<a href="#">煮蛋器</a>
+						<a href="#">电水壶</a>
+						<a href="#">电炖锅</a>
+						<a href="#">多用途锅</a>
+						<a href="#">电烧烤炉</a>
+						<a href="#">电饭盒</a>
+						<a href="#">其它厨房电器</a>
+					</dd>
+					<dt><a href="#">生活电器</a></dt>
+					<dd>
+						<a href="#">电风扇</a>
+						<a href="#">微波炉</a>
+						<a href="#">电烤箱</a>
+						<a href="#">电磁炉</a>
+						<a href="#">电压力煲</a>
+						<a href="#">豆浆机</a>
+						<a href="#">咖啡机</a>
+						<a href="#">面包机</a>
+						<a href="#">榨果汁机</a>
+						<a href="#">料理机</a>
+						<a href="#">电饼铛</a>
+						<a href="#">养生壶/煎药壶</a>
+						<a href="#">酸奶机</a>
+						<a href="#">煮蛋器</a>
+						<a href="#">电水壶</a>
+						<a href="#">电炖锅</a>
+						<a href="#">多用途锅</a>
+						<a href="#">电烧烤炉</a>
+						<a href="#">电饭盒</a>
+						<a href="#">其它厨房电器</a>
+					</dd>
+					<dt><a href="#">厨房小电</a></dt>
+					<dd>
+						<a href="#">电饭煲</a>
+						<a href="#">微波炉</a>
+						<a href="#">电烤箱</a>
+						<a href="#">电磁炉</a>
+						<a href="#">电压力煲</a>
+						<a href="#">豆浆机</a>
+						<a href="#">咖啡机</a>
+						<a href="#">面包机</a>
+						<a href="#">榨果汁机</a>
+						<a href="#">料理机</a>
+						<a href="#">电饼铛</a>
+						<a href="#">养生壶/煎药壶</a>
+						<a href="#">酸奶机</a>
+						<a href="#">煮蛋器</a>
+						<a href="#">电水壶</a>
+						<a href="#">电炖锅</a>
+						<a href="#">多用途锅</a>
+						<a href="#">电烧烤炉</a>
+						<a href="#">电饭盒</a>
+						<a href="#">其它厨房电器</a>
+					</dd>
+					<dt><a href="#">厨房小电</a></dt>
+					<dd>
+						<a href="#">电饭煲</a>
+						<a href="#">微波炉</a>
+						<a href="#">电烤箱</a>
+						<a href="#">电磁炉</a>
+						<a href="#">电压力煲</a>
+						<a href="#">豆浆机</a>
+						<a href="#">咖啡机</a>
+						<a href="#">面包机</a>
+						<a href="#">榨果汁机</a>
+						<a href="#">料理机</a>
+						<a href="#">电饼铛</a>
+						<a href="#">养生壶/煎药壶</a>
+						<a href="#">酸奶机</a>
+						<a href="#">煮蛋器</a>
+						<a href="#">电水壶</a>
+						<a href="#">电炖锅</a>
+						<a href="#">多用途锅</a>
+						<a href="#">电烧烤炉</a>
+						<a href="#">电饭盒</a>
+						<a href="#">其它厨房电器</a>
+					</dd>
+				</dl>
+			</div>
+
+			<div class="reghtdiv">
+				
+			</div>
+			</div>
+		</ul>
+	
+</body>
+</html>

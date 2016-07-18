@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简单展示效果</title>
+<style type="text/css">
+div,ul,li{
+	margin: 0;
+	padding:0;
+}
+ul li{
+	list-style: none;
+}
+.productshow{
+	margin: 0 auto;
+	width: 1230px;
+}
+.productshow ul li{
+	position: relative;
+	float: left;
+	/* font-size: 0;   *//* 方法解决html5渲染img时底部多几个像素的问题 */
+	margin-right: 10px;
+}
+.productshow ul li img{
+	width: 200px;
+    border:none;
+  vertical-align: middle;  /* 方法2解决html5渲染img时底部多几个像素的问题 */
+   /*  display: block; *//* 方法3解决html5渲染img时底部多几个像素的问题，不推荐 */
+    
+	position:relative;
+	z-index:22;
+}
+.productshow ul li a{
+	width:200px;
+    display:block;
+	border:2px solid #ccc;
+}
+.productshow ul li a:hover{
+	border:2px solid #C03;
+}
+.productshow ul li a span{
+	position:absolute;
+	z-index:30;
+	bottom:0px; 
+
+	font-size: 10pt;
+	width:200px;
+	height:40px;
+	filter:alpha(Opacity=50);为IE6设的，可以取值0--100
+	-moz-opacity:0.5; 老版本的Firefox
+	opacity:0.5; 它是CSS标准，该属性支持firefox、safari、和opera
+	-khtml-opacity:0.5; 使用KHTML内核而不是Webkit内核的safari
+	-webkit-opacity:0.5;旧的safare chrome
+	background:#000;
+	color:#fff;
+	line-height:40px;
+	text-align:left;
+	display: none;
+}
+.productshow ul li a:hover span{
+	display:block;
+	}
+/* div,ul,li,dl,dt,dd{
+	margin:0;
+	padding:0;
+}
+ul,li,dl,dt,dd{
+	list-style:none;
+}
+.productshow{
+	margin:0 auto; 要给定这个dIV宽度才会生效
+	width: 630px;
+}
+.productshow ul li{
+	position: relative;
+	float: left;
+	width:200px;
+	height: 112px;
+	margin-left: 2px;
+}
+.productshow ul li:hover{
+	border: 1px solid 	#000000;
+}
+.productshow ul li img{
+ position: relative; 
+	z-index: 22;
+	width: 200px;
+	
+	border: none;
+
+}
+.productshow ul li a {
+	display: block;
+}
+.productshow ul li a span{
+	position:absolute;
+	z-index:30;
+	bottom:0px; 
+
+	font-size: 10pt;
+	width:200px;
+	height:40px;
+	filter:alpha(Opacity=50);为IE6设的，可以取值0--100
+	-moz-opacity:0.5; 老版本的Firefox
+	opacity:0.5; 它是CSS标准，该属性支持firefox、safari、和opera
+	-khtml-opacity:0.5; 使用KHTML内核而不是Webkit内核的safari
+	-webkit-opacity:0.5;旧的safare chrome
+	background:#000;
+	color:#fff;
+	line-height:40px;
+	text-align:left;
+	display: none;
+}
+.productshow ul li a:hover{
+	border:1px solid #C03;
+}
+.productshow ul li a:hover span{
+	display: block;
+} */
+	</style>
+
+</head>
+<body>
+	<div class="productshow">
+		<ul>
+			<li class="red"><a href="http://www.hao123.com"><img src="img/red.png"><span>这是一个红色的色块展示图片</span></a></li>
+			<li class="green"><a href=""><img src="img/green.png"><span>这是一个绿色的色块展示图片</span></a></li>
+			<li class="blue"><a href=""><img src="img/blue.png"><span>这是一个蓝色的色块展示图片</span></a></li>
+		</ul>
+	</div>
+</body>
+</html>

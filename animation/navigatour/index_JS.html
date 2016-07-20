@@ -90,37 +90,70 @@
             top: expression(100+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+'px');
         }
 	</style>
-	<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	
 	<script type="text/javascript">
-		$(document).ready(function(){
-				$(window).scroll(function(){
-					//var item = $("#content .item");
-					var items = $("#content").find(".item");
-					var menu = $("#menu");
-					var top = $(document).scrollTop();
-					var currentId = ""; //
-					//console.log(i); 
-					items.each(function(){
-						var m=$(this);
-						var itop = m.offset().top;
-						if(top > itop - 200){
-							currentId = '#' + m.attr('id')
-						}else{
-							return false;
-						}		
-					});
+    function getByClassName(obj,cls){
+            var elements = obj.getElementsByTagName("*");
+            var result = [];
+            for (var i=0;i<elements.length;i++){
+                if(elements[i].className == cls){
+                    result.push(elements[i]);
+                }
+            }
+            return result;
+    }
 
-					var currentLink = menu.find(".current");
-					if(currentId && currentLink.attr("href") != currentId){
-						currentLink.removeClass("current");
-						menu.find("[href="+currentId+"]").addClass("current");
-					}
+    function hasClass(obj,cls){
+        return obj.className.match(new RegExp("(\\s|^)"+cls+"(\\s|$)"));
+    }
+    function removeClass(obj ,cls){
+        if(hasClass(obj , cls)){
+            var reg = new RegExp("(\\s|^)"+cls+"(\\s|$)");
+            obj.className = obj.className.replace(reg,"");
+        }
+    }
 
+    function addClass(obj,cls){
+        if(!hasClass(obj,cls)){
+            obj.className += " "+cls;
+        }
+    }
 
-				});  
+    window.onload = function(){
+                    window.onscroll =function(){
+                    var top =/* document.documentElement ? document.documentElement.scrollTop :*/ document.body.scrollTop;
+                  //  console.log(document.body.scrollTop);
+                   
+                   
+                    var menus = document.getElementById("menu").getElementsByTagName("a");
+                    //var items = document.getElementById("content").getElementsByClassName("item"); //ie6不兼容 
+                   // var items = getByClassName("content","item");错误写法 第一个参数应为obj
+                    var items = getByClassName(document.getElementById("content"),"item");
+                    var currentId = "";
+                    for(var i = 0 ;i<items.length;i++){
+                        var _item = items[i];
+                        var _itemTop = _item.offsetTop;
+                        if(top > _itemTop - 200){
+                            currentId = _item.id;
+                        }else{
+                            break;
+                        }
+                    }
 
-		});
+                    if (currentId) {
+                        for(var j=0 ;j<menus.length;j++){
+                            var _menu =menus[j];
+                            var _href = _menu.href.split("#");
+                            if(_href[_href.length - 1] != currentId){
+                                removeClass(_menu,"current");
+                            }else{
+                                addClass(_menu,"current");
+                            }
 
+                        }
+                    }
+                }
+            }
 
 
 	

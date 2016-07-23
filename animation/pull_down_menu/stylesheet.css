@@ -1,0 +1,60 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	/* background:url(bg.gif)repeat-x;*/
+
+	color:#333; 
+}
+ul{
+	padding:0;
+	margin: 0;
+}
+
+#header{
+	position: relative;
+    width: 900px; 
+	border: 1px solid red;
+	height: 27px;
+	margin: 0 auto;
+}
+#header .logo{
+	width: 80px;
+	height:27px;
+	float: left;
+}
+#header .member{
+	width: 50px;
+	height: 27px;
+	line-height: 27px;
+	float: right;
+	margin-right: 18px;
+	cursor: pointer;
+}
+.member ul {
+	position: absolute;
+	top: 27px;
+	left: 830px;
+	background: #FBF7E1;
+	width: 50px;
+	height: 80px;
+	line-height: 20px;
+	border: 1px solid red;
+	border-top:none;
+	text-align: center;
+	display: none;
+	list-style: none;
+
+}
+
+.member ul li a{
+
+	display: block;
+	text-decoration: none;  /* 去掉下划线 */
+	color: #333;
+	
+}
+.member ul li a:hover{
+
+	background: #FC0;
+}

@@ -39,21 +39,52 @@ window.onload = function(){
 		$().getId('login').css('top',top+'px').css('left',left+'px');
 	}
 */
- $().getId('login').center(200,350).resize(function(){
+/* $().getId('login').center(200,350).resize(function(){
  		$().getId('login').center(200,350);
  });
 
   $().getClass('login').click(function(){
  	$().getId('login').css('display','block');
+ 	 $().getId('screen').css('display','block').lock();  
+
  });
 
  $().getClass('close').click(function(){
  	$().getId('login').css('display','none');
+ 	 $().getId('screen').css('display','none').unlock();  
+ });*/
+ 
+ var login = $().getId('login');
+ var screen = $().getId('screen');
+
+  login.center(200,350);
+  $().resize(function(){
+  	login.center(200,350); //锁屏居中
+  if(login.css('display')=='block'){
+  		screen.lock(); //锁屏
+  };
+  
+  });
+/* login.center(200,350);
+login.center(200,350).resize(function(){
+ 		login.center(200,350);
+ });*/
+
+  $().getClass('login').click(function(){
+ 	login.css('display','block');
+ 	//screen.css('display','block').lock();  
+ 	screen.lock();
+
  });
 
-
-
-
+ $().getClass('close').click(function(){
+ 	login.css('display','none');
+ 	//screen.css('display','none').unlock();  
+ 	screen.unlock();  
+ });
+ 
+//login.addClass('a');
+//alert(document.styleSheets[0]);
 
 
 

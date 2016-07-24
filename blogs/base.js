@@ -81,12 +81,13 @@ Base.prototype.css = function(attr,value){
 Base.prototype.css = function(attr,value){
 	for(var i = 0 ; i<this.elements.length;i++){
 		if(arguments.length == 1){ //只有一个参数的时候  获取该CSS属性值
-			//兼容获取外部样式  .getComputedStyle()获取的是最终应用在元素上的所有CSS属性对象
+		/*	//兼容获取外部样式  .getComputedStyle()获取的是最终应用在元素上的所有CSS属性对象
 			if(typeof window.getComputedStyle != 'undefined'){ //w3c
 				return window.getComputedStyle(this.elements[i],null)[attr];
 			}else if(typeof this.elements[i] != 'undefined'){ //ie
 				return this.elements.style[attr];
-			}
+			}*/
+			return getStyle(this.elements[i],attr);
 		}
 			this.elements[i].style[attr]=value;
 	
@@ -97,7 +98,7 @@ Base.prototype.css = function(attr,value){
 //添加class
 Base.prototype.addClass = function(className){
 	for(var i=0;i<this.elements.length;i++){
-		if(!this.elements[i].className.match(new RegExp("(\\s|^)"+className+"(\\s|$)" ))){
+		if(! hasClass(this.elements[i],className)){
 			this.elements[i].className += " "+ className; //" "里面要加空格  防止添加的时候类名叠加在一起 a b 形成 ab
 		}
 		
@@ -105,6 +106,39 @@ Base.prototype.addClass = function(className){
 	return this;
 }
 
+//移除Class
+Base.prototype.removeClass = function(className){
+	for(var i=0;i<this.elements.length;i++){
+		if(hasClass(this.elements[i],className)){
+			this.elements[i].className = this.elements[i].className.replace(new RegExp('(\\s|^)'+className)); //" "里面要加空格  防止添加的时候类名叠加在一起 a b 形成 ab
+		}
+		
+	}
+	return this;
+}
+//添加link或style的CSS规则 $().addRule(0,'body','font-size:200px',0);
+Base.prototype.addRule = function(num, selectorText,cssText,position){
+	var sheet = document.styleSheets[num];
+	/*if(typeof sheet.insertRule !='undefined'){//W3C
+		sheet.insertRule(selectorText +'{'+cssText+'}',position);
+	}else if(typeof sheet.addRule !='undefined'){//IE
+		sheet.addRule(seletorText,cssText,position);
+	}*/
+	insertRule(sheet,selectorText,cssText,position);
+	return this;
+}
+
+//移除link或style的CSS规则 $().removeRule(0);
+Base.prototype.removeRule = function(num,index){
+	var sheet = document.styleSheets[num];
+	/*if(typeof sheet.insertRule !='undefined'){//W3C
+		sheet.deleteRule(index);
+	}else if(typeof sheet.addRule !='undefined'){//IE
+		sheet.removeRule(index);
+	}*/
+	deleteRule(sheet,index);
+	return this;
+}
 //设置innerHTML
 Base.prototype.html = function(str){
 
@@ -198,5 +232,22 @@ Base.prototype.center = function(width,height){
 //触发浏览器窗口时间
 Base.prototype.resize =function(fn){
 	window.onresize = fn;
+	return this;
+}
+//锁屏功能
+Base.prototype.lock=function(){
+	for(var i=0;i<this.elements.length;i++){
+		this.elements[i].style.height =getInner().height +'px';
+		this.elements[i].style.width = getInner().width + 'px';
+		this.elements[i].style.display ='block'; 
+	}
+	return this;
+}
+
+Base.prototype.unlock=function(){
+	for(var i=0;i<this.elements.length;i++){
+		this.elements[i].style.display='none';
+		
+	}
 	return this;
 }

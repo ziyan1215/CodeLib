@@ -12,21 +12,14 @@
 Base 是一个基础库核心对象，返回的是divElement 这个对象没有CSS方法*/
 
 window.onload = function(){
-	//var base =new Base ;
-	/*$().getId("box").css("color","red").css("background","blue");
-	alert($().getTagName("p").elements.length);
-	$().getTagName("p").css("color","red").css("background","green");
-	$().getTagName("p").html("段落").click(function(){
-		alert("a");*/
-	// var i= $().getTagName("p");//返回元素P的对象集合,document.getElementsByTagName("p")返回的是带有指定标签名的对象集合.length
-	//	alert(i.elements[1].innerHTML);
-	//	
-		//alert($().getId("box").css("color"));
-		//alert($().getId("box").css("color"));
-	//$().getClass('p','box1').css('color','red');
+	$().getClass('member').hover(function(){
+		//$().getId("set").style.display= "block";
+		//$().getClass('member').css("background","green");
+		$(this).css("background","green");
 		
-	//$().getClass('p').css("color","green");
-	//$().getClass('p').css("color",'yellow');
-	$().getId("box1").addClass("a").addClass("b").addClass("a");
-	$().getId("box2").addClass("b");
+		$().getTagName("ul").show();
+	},function(){
+		$().getTagName("ul").hide();
+		$(this).css("background","white");
+	})
 	};

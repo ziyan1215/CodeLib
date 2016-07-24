@@ -33,14 +33,17 @@ var Base = {
 	},
 }*/
 //前台调用
-var $ = function(){
-	return new Base;
+var $ = function(_this){
+	return new Base(_this);
 }
 
 //基础库
-function Base(){
+function Base(_this){
 	//创建一个数组，用来保存获取的节点和节点数组
 	this.elements = []; //放进基础库里面防止变量公有化。
+	if(_this!=undefined){//_this是一个对象，undefined也是一个对象，区别于typeof带单引号的对象
+		this.elements[0] = _this;
+	}
 }
 
 
@@ -159,4 +162,26 @@ Base.prototype.getElement = function(num){
 
 }
 
-//
+//设置鼠标移入移出
+Base.prototype.hover=function(over,out){
+	for(var i=0;i<this.elements.length;i++){
+		this.elements[i].onmouseover = over;
+		this.elements[i].onmouseout = out;
+	}
+	return this;
+}
+//设置显示
+Base.prototype.show = function(){
+	for(var i=0;i<this.elements.length;i++){
+		this.elements[i].style.display = "block";
+	}
+	return this;
+}
+//设置隐藏
+Base.prototype.hide = function(){
+	for(var i=0;i<this.elements.length;i++){
+		this.elements[i].style.display = "none";
+	}
+	return this;
+}
+

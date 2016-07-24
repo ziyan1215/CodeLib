@@ -41,7 +41,7 @@ var $ = function(_this){
 function Base(_this){
 	//创建一个数组，用来保存获取的节点和节点数组
 	this.elements = []; //放进基础库里面防止变量公有化。
-	if(_this!=undefined){//_this是一个对象，undefined也是一个对象，区别于typeof带单引号的对象
+	if(_this!=undefined){//_this是一个对象，undefined也是一个对象，区别于typeof返回的  带单引号的对象
 		this.elements[0] = _this;
 	}
 }
@@ -185,3 +185,18 @@ Base.prototype.hide = function(){
 	return this;
 }
 
+//设置物体居中
+Base.prototype.center = function(width,height){
+	var top=(document.documentElement.clientHeight-200)/2;
+	var left=(document.documentElement.clientWidth-350)/2;
+	for(var i=0;i<this.elements.length;i++){
+		this.elements[i].style.top = top+"px";
+		this.elements[i].style.left = left+"px";
+	}
+	return this;
+}
+//触发浏览器窗口时间
+Base.prototype.resize =function(fn){
+	window.onresize = fn;
+	return this;
+}

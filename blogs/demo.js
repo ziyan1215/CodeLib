@@ -24,8 +24,9 @@ window.onload = function(){
 		//alert($().getId("box").css("color"));
 		//alert($().getId("box").css("color"));
 	//$().getClass('p','box1').css('color','red');
-	$().getId("box1").css("color","red");
+		
 	//$().getClass('p').css("color","green");
 	//$().getClass('p').css("color",'yellow');
-
+	$().getId("box1").addClass("a").addClass("b").addClass("a");
+	$().getId("box2").addClass("b");
 	};

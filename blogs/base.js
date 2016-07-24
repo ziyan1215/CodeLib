@@ -32,7 +32,7 @@ var Base = {
 		return document.getElementsByTagName(tagName);
 	},
 }*/
-
+//前台调用
 var $ = function(){
 	return new Base;
 }
@@ -40,15 +40,19 @@ var $ = function(){
 //基础库
 function Base(){
 	//创建一个数组，用来保存获取的节点和节点数组
-	this.elements =[];
+	this.elements = []; //放进基础库里面防止变量公有化。
+}
+
+
+	
 	//获取ID
-	this.getId = function(id){
+	Base.prototype.getId = function(id){
 		this.elements.push(document.getElementById(id));
 		return this;
 	}
 
 	//获取TagName
-	this.getTagName = function(tagName){
+	Base.prototype.getTagName = function(tagName){
 		var tags = document.getElementsByTagName(tagName);
 		for(var i = 0 ;i<tags.length;i++){
 			this.elements.push(tags[i]);
@@ -57,7 +61,6 @@ function Base(){
 	}
 
 
-}
 
 /*//设置CSS
 Base.prototype.css = function(attr,value){
@@ -84,6 +87,17 @@ Base.prototype.css = function(attr,value){
 		}
 			this.elements[i].style[attr]=value;
 	
+	}
+	return this;
+}
+
+//添加class
+Base.prototype.addClass = function(className){
+	for(var i=0;i<this.elements.length;i++){
+		if(!this.elements[i].className.match(new RegExp("(\\s|^)"+className+"(\\s|$)" ))){
+			this.elements[i].className += " "+ className; //" "里面要加空格  防止添加的时候类名叠加在一起 a b 形成 ab
+		}
+		
 	}
 	return this;
 }
@@ -145,3 +159,4 @@ Base.prototype.getElement = function(num){
 
 }
 
+//
